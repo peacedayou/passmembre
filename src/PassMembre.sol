@@ -61,15 +61,15 @@ contract PassMembre is ERC721, AccessControl {
 
     // ------------------------------------------------------------- émission
 
-    function createEvent(string calldata name, uint64 startsAt, uint32 capacity)
+    function createEvent(string calldata eventName, uint64 startsAt, uint32 capacity)
         external
         onlyRole(ISSUER_ROLE)
         returns (uint64 eventId)
     {
         if (capacity == 0) revert InvalidCapacity();
         eventId = ++eventCount;
-        _events[eventId] = EventInfo(name, startsAt, capacity, 0);
-        emit EventCreated(eventId, name, startsAt, capacity);
+        _events[eventId] = EventInfo(eventName, startsAt, capacity, 0);
+        emit EventCreated(eventId, eventName, startsAt, capacity);
     }
 
     /// @param validUntil Horodatage d'expiration (0 = sans expiration).
