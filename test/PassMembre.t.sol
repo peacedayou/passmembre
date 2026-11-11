@@ -87,16 +87,20 @@ contract PassMembreTest is Test {
     }
 
     function test_RevertWhen_UnauthorizedRoles() public {
+        // Lire les rôles avant vm.prank : sinon le prank s'appliquerait à ces appels de lecture
+        bytes32 issuerRole = pass.ISSUER_ROLE();
+        bytes32 checkerRole = pass.CHECKER_ROLE();
+
         vm.prank(alice);
         vm.expectRevert(
-            abi.encodeWithSelector(IAccessControl.AccessControlUnauthorizedAccount.selector, alice, pass.ISSUER_ROLE())
+            abi.encodeWithSelector(IAccessControl.AccessControlUnauthorizedAccount.selector, alice, issuerRole)
         );
         pass.issue(alice, eventId, 0, false);
 
         uint256 id = _issue(alice, false, 0);
         vm.prank(alice);
         vm.expectRevert(
-            abi.encodeWithSelector(IAccessControl.AccessControlUnauthorizedAccount.selector, alice, pass.CHECKER_ROLE())
+            abi.encodeWithSelector(IAccessControl.AccessControlUnauthorizedAccount.selector, alice, checkerRole)
         );
         pass.checkIn(id);
     }
