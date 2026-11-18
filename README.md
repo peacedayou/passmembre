@@ -15,6 +15,15 @@ organisateurs d'événements. Contrat ERC-721 testé (Foundry, fuzzing, Slither)
 | **Révocation** | Remboursement ou fraude : le pass est détruit et la place libérée |
 | **Rôles séparés** | Administrateur, émetteur et contrôleur (OpenZeppelin AccessControl) |
 
+## Ça vous intéresse ?
+
+**Pour qui :** Associations étudiantes, clubs et organisateurs d'événements qui veulent des billets et des cartes de membre impossibles à copier ou à revendre au noir.
+
+- ⭐ Ajoutez une étoile ou suivez le dépôt (**Watch**) pour être prévenu des nouvelles versions.
+- 📝 Dites-moi votre besoin : [ouvrez une fiche « Je suis intéressé »](https://github.com/peacedayou/passmembre/issues/new?template=interet.yml).
+  Cela m'aide à choisir les prochaines fonctions. Aucune vente ni aucun engagement : c'est une simple liste d'intérêt.
+- 💬 Une question ou une idée ? Ouvrez une *issue* ; je réponds en français ou en anglais.
+
 ## Démarrage
 
 ```bash
